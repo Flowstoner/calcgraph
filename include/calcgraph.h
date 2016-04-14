@@ -923,6 +923,7 @@ namespace calcgraph {
         /**
          * @brief Return a Connectable directly connected to a particular key.
          *
+         * @param key which output of this work to return.
          * @param ref we'll use this to lock the Work object while we inspect
          *the lists, as all our internal data structures are protected by the
          *containing Node's lock.
@@ -1469,6 +1470,7 @@ namespace calcgraph {
         /**
          * @brief Add an argument with a Latest input policy
          *
+         * @param arg The source we should connect to.
          * @param initial The initial value for this argument - if no new values
          *are passed via an Input this value will be used by the Node when its
          *function is called. If not given the initial argument will be a

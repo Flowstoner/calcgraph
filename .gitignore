@@ -1,9 +1,11 @@
-*.dSYM
+man
 latex
+calcgraph.pc
+doxygen.conf
+
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
 Makefile
 cmake_install.cmake
 install_manifest.txt
-calcgraph.pc
