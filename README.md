@@ -333,9 +333,16 @@ All data structures in all the output policy implementations are guarded by the 
 ## Dependencies
 
 - CalcGraph uses boost intrusive_ptr, a header-only smart pointer library.
-- The tests (`make check`) use [cppunit](http://sourceforge.net/projects/cppunit) and [valgrind](http://valgrind.org).
-- To build the documentation (`make doc`), you need [doxygen](http://www.stack.nl/~dimitri/doxygen) and [pdflatex](https://www.ctan.org/pkg/pdftex).
-- The example (`make example`) uses the [GNU Scientific Library](https://www.gnu.org/software/gsl), and optionally a [ruby](https://www.ruby-lang.org/en) interpreter for the script to drive the example process with dummy data.
+- The tests use [cppunit](http://sourceforge.net/projects/cppunit) and [valgrind](http://valgrind.org).
+- To build the documentation, you need [doxygen](http://www.stack.nl/~dimitri/doxygen) and [pdflatex](https://www.ctan.org/pkg/pdftex).
+- The example uses the [GNU Scientific Library](https://www.gnu.org/software/gsl), and optionally a [ruby](https://www.ruby-lang.org/en) interpreter for the script to drive the example process with dummy data.
+
+## Building
+
+Calcgraph uses [cmake](https://cmake.org) as a build system, and uses [pkg-config](https://www.freedesktop.org/wiki/Software/pkg-config) to find the dependencies.
+
+- To build the project, run `cmake . && make`
+- To build without examples, run `cmake -D WITH_EXAMPLES=OFF . && make`
 
 ## Contributing
 

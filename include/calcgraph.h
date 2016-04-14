@@ -1228,11 +1228,11 @@ namespace calcgraph {
          * @tparam N which function argument to get
          */
         template <std::size_t N>
-        Input<typename std::tuple_element_t<
-            N, typename std::tuple<INPUTS...>>::input_type>
+        Input<typename std::tuple_element<
+            N, typename std::tuple<INPUTS...>>::type::input_type>
         input() {
-            return Input<typename std::tuple_element_t<
-                N, typename std::tuple<INPUTS...>>::input_type>(
+            return Input<typename std::tuple_element<
+                N, typename std::tuple<INPUTS...>>::type::input_type>(
                 std::get<N>(inputs), boost::intrusive_ptr<Work>(this));
         }
 
@@ -1259,14 +1259,14 @@ namespace calcgraph {
          * input policy
          */
         template <std::size_t N>
-        Input<typename std::tuple_element_t<
-            N, typename std::tuple<INPUTS...>>::element_type>
+        Input<typename std::tuple_element<
+            N, typename std::tuple<INPUTS...>>::type::element_type>
         variadic_add(
-            typename std::tuple_element_t<
-                N, typename std::tuple<INPUTS...>>::element_type initial = {}) {
+            typename std::tuple_element<
+                N, typename std::tuple<INPUTS...>>::type::element_type initial = {}) {
             spinlock();
-            auto ret = Input<typename std::tuple_element_t<
-                N, typename std::tuple<INPUTS...>>::element_type>(
+            auto ret = Input<typename std::tuple_element<
+                N, typename std::tuple<INPUTS...>>::type::element_type>(
                 std::get<N>(inputs).add_input(initial),
                 boost::intrusive_ptr<Work>(this));
             release();
@@ -1288,8 +1288,8 @@ namespace calcgraph {
          * input policy
          */
         template <std::size_t N>
-        void variadic_remove(Input<typename std::tuple_element_t<
-            N, typename std::tuple<INPUTS...>>::element_type> &input) {
+        void variadic_remove(Input<typename std::tuple_element<
+            N, typename std::tuple<INPUTS...>>::type::element_type> &input) {
             spinlock();
             std::get<N>(inputs).remove_input(input.in);
             release();

@@ -11,7 +11,7 @@
 #include <string>
 #include <limits>
 
-#include "calcgraph.h"
+#include <calcgraph.h>
 
 enum TradeSignal { BUY, SELL, HOLD };
 static const char *TradeSignalNames[] = {"BUY", "SELL", "HOLD"};
