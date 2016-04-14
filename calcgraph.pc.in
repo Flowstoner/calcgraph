@@ -1,0 +1,7 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+includedir=${prefix}/include
+
+Name: @PROJECT_NAME@
+Description: A C++14 header-only dataflow programming framework, for organising logic in streaming application to minimise end-to-end calculation latency.
+Version: @PROJECT_VERSION@
+Cflags:  -I${includedir}
