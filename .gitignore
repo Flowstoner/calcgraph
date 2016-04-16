@@ -2,6 +2,7 @@ man
 latex
 calcgraph.pc
 doxygen.conf
+libcalcgraph.a
 
 CMakeCache.txt
 CMakeFiles
